@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 document.write("code03の練習");
 document.write(
   "<br>➀　小数点以下切捨てMath.floor()と乱数Math.random()を使う。<br>②　whileとifを使う。<br>③　累積加算を行う。<br><br>　マス目５０の双六をします。"

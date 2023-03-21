@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 document.write("code02の練習");
 document.write(
   "<br>➀　switch/caseを使う。<br>②　if/elseを使う。<br>③　論理演算をして某駅への列車を選択する。"

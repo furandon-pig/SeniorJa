@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 document.write("code04の練習");
 document.write("<br>➀forを使う。<br>②インクリマントを10000回繰返す。<br><br>");
 /*
