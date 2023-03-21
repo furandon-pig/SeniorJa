@@ -1,0 +1,40 @@
+  body {
+    font-family: "Avenir Next";
+  }
+  li {
+    list-style: none;
+  }
+  .header {
+    background-color: #d0a626;
+    color: #ffffff;
+    height: 80px;
+  }
+  #lesson1{background-color: #a7f74f;}
+  #lesson2{background-color: #87f74f;}
+  #lesson3{background-color: #67f74f;}
+  #lesson4{background-color: #47f74f;}
+  #lesson5{background-color: #27f74f;}
+  #lesson6{background-color: #07f74f;}
+  .header-logo {
+    float: left;
+    font-size: 36px;
+    padding: 20px 40px;
+  }
+  .header-list li {
+    float: left;
+    padding: 28px 40px;
+    font-size: 28px;
+  }
+  .main {
+    padding: 5px 20px;
+  }
+  .copy-container h1 {
+    float: left;
+    font-size: 36px;
+    color: black;
+  }
+  .copy-container p {
+    /*float: left;*/
+    padding: 30px 200px;
+  }
+ 

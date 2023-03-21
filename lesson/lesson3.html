@@ -1,0 +1,59 @@
+<!-- lesson index.html origin 2023/03/14 by hiro2021 
+△1. 変更したらここに追記してください。
+-->
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="lesson3.css">
+</head>
+<body>
+    <div class="header" id="lesson3">
+        <div class="header-logo">遊んで学ぶ・JavaScript部屋</div>
+        <div class="header-list">
+          <ul>
+            <li>
+              <label for="lesson">道場選択:</label>
+              <select onchange="location=this.value;">
+              <option >lesson選択</a></option>   
+              <option value="index.html">home</a></option> 
+              <option value="lesson1.html">lesson1</a></option> 
+              <option value="lesson2.html">lesson2</a></option> 
+              <option value="lesson3.html">lesson3</a></option> 
+              <option value="lesson4.html">lesson4</a></option>
+              <option value="lesson5.html">lesson5</a></option> 
+              <option value="lesson6.html">lesson6</a></option> 
+
+            </select>
+
+            </li>
+
+            <li>Tips</li>
+            <li>Ｑ＆Ａ</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="main">
+          <div class="copy-container">
+          <h1>道　場</h1>
+          <p>Lesson3では3code*.jsを使い、スライドショーを練習します。</p>
+        </div>
+      </div>
+       
+      <div class="slider">
+          <ul class="slider-inner"></ul>
+          <ul class="nav"></ul>
+          <p id="arrow-prev" class="arrow">←</p>
+          <p id="arrow-next" class="arrow">→</p>
+      </div>
+      
+    </div> 
+    <script src="js\lesson3\3code.js"></script>
+    
+</body>
+</html>

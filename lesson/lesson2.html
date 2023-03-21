@@ -1,0 +1,59 @@
+<!-- lesson index.html origin 2023/03/14 by hiro2021 
+△1. 変更したらここに追記してください。
+-->
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL</title>
+    <link rel="stylesheet" href="lesson2.css">
+</head>
+<body>
+    <div class="header" id="lesson2">
+        <div class="header-logo">遊んで学ぶ・JavaScript部屋</div>
+        <div class="header-list">
+          <ul>
+            <li>
+              <label for="lesson">道場選択:</label>
+              <select onchange="location=this.value;">
+              <option >lesson選択</a></option>   
+              <option value="index.html">home</a></option> 
+              <option value="lesson1.html">lesson1</a></option> 
+              <option value="lesson2.html">lesson2</a></option> 
+              <option value="lesson3.html">lesson3</a></option> 
+              <option value="lesson4.html">lesson4</a></option>
+              <option value="lesson5.html">lesson5</a></option> 
+              <option value="lesson6.html">lesson6</a></option> 
+
+              </select>
+            </li>
+            <li>Tips</li>
+            <li>Ｑ＆Ａ</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="main">
+        <div class="copy-container" id="Lesson-coment">
+          <h1>道　場</h1>
+          <p>Lesson2では2code*.jsを使い、DOM操作・イベントを練習します。</p>
+          <input type="text" id="chat-input">
+          <button id="startPB">start</button>
+          <button id="endPB">end</button>
+          <!-- comnet をJavaScript で追記します　--->
+        </div>
+      </div>
+      
+     <div class="Practice">
+      <div class="chat-window-inner">
+        <ul id="chat-list">
+        </ul>
+    </div>
+
+     </div>
+    <script src="js\lesson2\2code02.js"></script>
+    
+</body>
+</html>
