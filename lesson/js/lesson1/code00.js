@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 document.write("<br>code00、文書を出力します。<br><br>");
 document.write("<br>この文書はどこにでるのか確かめています。");
 document.write("<br>lesson1の最後のdivの後に出力さています。");

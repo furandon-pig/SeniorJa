@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 document.write("code05の練習");
 document.write(
   "<br>➀　３つの関数を作る。<br>②　displayTrainType()電車の種類を表示<br>③　inputStation()駅名を入力<br>④　getTrainType(station)電車の種類を取得<br><br>　呼出し処理の場所はどこにするか確認する。<br>　functionだけだと実行されない。先頭でも、最後でも呼出しを行うと実行できます。<br>　どこで呼び出すと良いか好き嫌いがありますが、プログラムは前から読むので、前から順に実行処理が並ぶ方が読み易いプログラムになる。"

@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 document.write("code06の練習<br>");
 document.write(
   "<br>➀オブジェクトの練習をする。<br>　　自分で定義するオブジェクト【student】を定義　区切り記号は,を使う<br>②開発ツールのコンソールログを表示する。"

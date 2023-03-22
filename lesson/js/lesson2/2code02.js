@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 document.write("2code02で、DOM操作とclickイベントを練習をします。<br><br>");
 document.write("「今日の天気」をh1で、その下に「晴れ」をddで　次に「いいお天気ですね」をpで　追加します。");
 document.write("「start」を押すと「いいね\！」が追加されます。");
