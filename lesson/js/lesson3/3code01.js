@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 // スライダーに表示する画像のパス
 var imgList = [
 	"images/img01.jpg",

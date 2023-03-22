@@ -1,3 +1,4 @@
+/*written by hiro2021*/
 // メソッドを使い追加します。appendChild　削除は　removeChild
 
 // LessonコメントをHTMLのｐタグを生成して追記しています
