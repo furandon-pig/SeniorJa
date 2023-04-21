@@ -1,7 +1,7 @@
 # SeniorJa
 'writen By hiro2021'
 # シニアもくもく会　Javascript部屋
- 毎月開催されるプログラムを学ぶコミュニティサークルです。このサイトは非公開で運用します。サイトに入るためには、Githubアカウントをお知らせ下さい。
+ 毎月開催されるプログラムを学ぶコミュニティサークルです。このサイトは公開で運用します。このサイトを利用に当たり、簡単な自己紹介をご記入ください。
 ***
 ## GitとGitHub練習で自己紹介を作成
 自己紹介のファイルを作成します。
@@ -12,6 +12,10 @@
  5. 自己紹介以外を編集する時は、masterをブランチします。
  6. ブランチ名はファイル名にします。
  7. 修正物は、プルリクエストをしてmasterに統合します。
+
+    [Gitの説明](https://github.com/furandon-pig/senior-programming-memo/blob/main/memo/git/git.md)
+
+    [GitHubの説明](https://github.com/furandon-pig/senior-programming-memo/blob/main/memo/git/github.md)
 *** 
 ## サイト内ホルダー 
 1. hajime　サイト紹介と自己紹介
