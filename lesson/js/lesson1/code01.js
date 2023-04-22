@@ -1,7 +1,7 @@
 /*written by hiro2021*/
 document.write("code01の練習");
 document.write(
-  "<br>➀　promptボックスとalertボックスとconfirmボックスを使う。<br>②　while文の２種類を使う。<br>③　constとvarをつかう。<br>④　Mathオブジェクトで8%の消費税を計算する。"
+  "<br>➀　promptボックスとalertボックスとconfirmボックスを使う。<br>②　while文の２種類を使う。<br>③　constとvarをつかう。　*** letとvarの違いは何か教えてください。***<br>④　Mathオブジェクトで8%の消費税を計算する。"
 );
 /*
  */
