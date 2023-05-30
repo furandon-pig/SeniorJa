@@ -1,0 +1,50 @@
+
+　div ,h1{
+   position: relative;left:20px;top: 10px;
+  font-size: 30px ;
+  color: rgb(20, 106, 187);
+}
+div ,h2,a{
+  position: relative;left:20px;top: 1em;
+ font-size: 30px ;
+ color: rgb(20, 106, 187);
+}
+
+　div ,p{
+  position: relative;left:20px;top: 1em;
+ font-size: 20px ;
+ color:rgb(204, 92, 18) ;
+}
+
+ 
+input {
+ position: relative;left: 50px;
+  width: 240px;
+  height: 50px;
+  font-size: 20px ;
+  color: rgb(20, 106, 187);
+  }
+  button{
+  
+   position: absolute; left: 200px; 
+   width: 100px;
+   height: 30px;
+   font-size: 12px ;
+  color: rgb(20, 106, 187);
+  
+     }
+
+     span{
+       position: relative;left: 50px;
+      font-size: 25px ;
+     }
+     canvas {
+      position: absolute; top: 110px; left: 340px;  
+     }
+     pre{ 
+       font-size: 30px; 
+       color: red ;
+      }
+ 
+  
+  
