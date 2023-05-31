@@ -1,3 +1,4 @@
+var answer = 0
 
 function tasizan() {
 	text01 = document.getElementById('atai1');
@@ -5,13 +6,16 @@ function tasizan() {
 
 	x = parseInt(text01.value);
 	y = parseInt(text02.value);
-
 	z = x + y;
 	
 	kekka = document.getElementById('kekka');
 	kekka.innerHTML = z;
-	kekka.style.color ='green';
-	drees(z);
+	if (z == answer){
+		kekka.style.color ='green';
+	}else{
+		kekka.style.color ='red';
+	}	
+	drees(z,1);
 }
 
 function hikizan() {
@@ -20,19 +24,20 @@ function hikizan() {
 
 	a = parseInt(text03.value);
 	b = parseInt(text04.value);
-
 	z = a - b;
 
 	kekka2 = document.getElementById('kekka2');
 	kekka2.innerHTML = z;
-	kekka2.style.color ='green';
-	drees(z);
+	if (z == answer){
+		kekka2.style.color ='green';
+	}else{
+		kekka2.style.color ='red';
+	}
+	drees(z,2);
 }
 
-function drees(z){
-	
-	const img = new Image();
-	
+function drees(z,m){	
+	const img = new Image();	
 	switch(z){
 		case 20:
 			img.src = "rika.png";
@@ -53,20 +58,25 @@ function drees(z){
 			img.src = "rika17.png";
 		break;
 		default:
-			kekka.style.color = 'red';
+			
 		break;
 	}
 
 	const canvas = document.createElement('canvas')
 	const ctx =canvas.getContext('2d');
 
-	canvas.width = 250;
+	canvas.width = 750;
 	canvas.height = 420;	
 	//画像をcanvasに設定
+	let x0 = 250 * m;
+	console.log(x0,m);
+
 	img.onload = function(){
-		ctx.drawImage(img, 0, 0, 250, 420);
+		ctx.drawImage(img, x0, 0, 250, 420);
+		
 		canvas.setAttribute('style' , 'display:block;margin:auto');
 		document.body.appendChild(canvas);
+		
 	}	
 }
 
@@ -79,6 +89,15 @@ function clearText() {
 	textForm.value = '';
 	var textForm = document.getElementById("atai4");
 	textForm.value = '';
+/* キャンパスをクリアできない
+	const canvas = document.createElement('canvas')
+	const ctx =canvas.getContext('2d');
+	canvas.width = 750;
+	canvas.height = 420;
+	ctx.clearRect(0,0,750,420);
+	canvas.setAttribute('style' , 'display:block;margin:auto');
+		document.body.appendChild(canvas);
+*/		
 }
 
 function reset() {
@@ -86,22 +105,7 @@ function reset() {
 }
 
 function kaishi() {
-	kekka.style.color = 'red';
-
-	const canvas = document.createElement('canvas')
-	const ctx =canvas.getContext('2d');
-
-	canvas.width = 250;
-	canvas.height = 420;
-
-	const img = new Image();
-	img.src = "rika.png";
-
-	//画像をcanvasに設定
-	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
-
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
-	}
+	answer = Math.floor(Math.random() * 6) * 20 + 20; // 20から120までの20の倍数をランダムに生成
+	console.log(answer); // 結果を表示
+	drees(answer,0);
 }
