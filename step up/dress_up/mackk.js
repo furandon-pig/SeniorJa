@@ -1,4 +1,14 @@
 
+// ステップごとの着せ替え状態を配列で管理する。
+dress_step = [
+	{ value:  20, img_name: 'rika.png', checked: true  },
+	{ value:  40, img_name: 'rika12.png', checked: false },
+	{ value:  60, img_name: 'rika13.png', checked: false },
+	{ value:  80, img_name: 'rika15.png', checked: false },
+	{ value: 100, img_name: 'rika16.png', checked: false },
+	{ value: 120, img_name: 'rika17.png', checked: false },
+];
+
 function tasizan() {
 	text01 = document.getElementById('atai1');
 	text02 = document.getElementById('atai2');
@@ -10,157 +20,53 @@ function tasizan() {
 	
 	kekka = document.getElementById('kekka');
 	kekka.innerHTML = z;
-	kekka.style.color ='green';
+	kekka.style.color ='red';
 
-	let a = z== 20;
-	let b = z==40;
-	let c = z==60;
-	let d = z==80;
-	let e = z==100;
-	let h = z==120;
+	// 配列dress_stepの要素を一つずつ取り出して処理する。
+	for (ds of dress_step) {
+		if (ds.checked == false) {
+			ds.checked = true;
+			console.log(`z= ${z}, ds.value= ${ds.value}`);
 
-if (a) {
+			// 画像の切り替え
+			let img_name = ds.img_name;
+			console.log(`z= ${z}, ds.value= ${ds.value}`);
+			if (z != ds.value) {
+				kekka.style.color = 'green';
+				img_name = 'rika.png';
 
-	if(b,c,d,e.h)
-	{
-		false;
-	}
-	kekka.style.color = 'red';
+				// 計算結果を間違えたので着せ替え状態を最初の状態に戻す。
+				for (ds of dress_step) {
+					ds.checked = false;
+				}
+				dress_step[0].checked = true;
+			}
 
-	const canvas = document.createElement('canvas')
-	const ctx =canvas.getContext('2d');
+			const canvas = document.createElement('canvas')
+			const ctx =canvas.getContext('2d');
 
-	canvas.width = 250;
-	canvas.height = 420;
+			canvas.width = 250;
+			canvas.height = 420;
 
+			const img = new Image();
+			img.src = img_name;
 
-	const img = new Image();
-	img.src = "rika.png";
+			//画像をcanvasに設定
+			img.onload = function(){
+				ctx.drawImage(img, 0, 0, 250, 420);
 
-	//画像をcanvasに設定
-	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
+				canvas.setAttribute('style' , 'display:block;margin:auto');
+				document.body.appendChild(canvas);
+			}
 
-
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
-	}
-}
-if (b) {
-
-	if(c,d,e.h)
-	{
-		false;
-	}
-	kekka.style.color = 'red';
-
-	const canvas = document.createElement('canvas')
-	const ctx =canvas.getContext('2d');
-
-	canvas.width = 250;
-	canvas.height = 420;
-
-
-	const img = new Image();
-	img.src = "rika12.png";
-
-	//画像をcanvasに設定
-	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
-
-
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
+			break;
+		}
 	}
 }
 
-if (c) {
-	kekka.style.color = 'red';
-	const canvas = document.createElement('canvas')
-	const ctx =canvas.getContext('2d');
-
-	canvas.width = 250;
-	canvas.height = 420;
-
-	const img = new Image();
-	img.src = "rika13.png";
-
-	//画像をcanvasに設定
-	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
-
-
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
-	}
-}
-
-
- if (d) {
-	kekka.style.color = 'red';
-	const canvas = document.createElement('canvas')
-	const ctx =canvas.getContext('2d');
-
-	canvas.width = 250;
-	canvas.height = 420;
-
-	const img = new Image();
-	img.src = "rika15.png";
-
-	//画像をcanvasに設定
-	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
-
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
-	}
-}
-
-if (e) {
-	kekka.style.color = 'red';
-	const canvas = document.createElement('canvas')
-	const ctx =canvas.getContext('2d');
-
-	canvas.width = 250;
-	canvas.height = 420;
-
-
-	const img = new Image();
-	img.src = "rika16.png";
-
-	//画像をcanvasに設定
-	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
-
-
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
-
-	}
-}
-if (h) {
-	kekka.style.color = 'red';
-	const canvas = document.createElement('canvas')
-	const ctx =canvas.getContext('2d');
-
-	canvas.width = 250;
-	canvas.height = 420;
-
-
-	const img = new Image();
-	img.src = "rika17.png";
-
-	//画像をcanvasに設定
-	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
-
-
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
-	}
-}
-}
-
+// ToDo: 引き算の処理についても、tasizan()と同じ形でコードを整理できるはず。
+//       加えて、tasizan()とhikizan()の違いは、足し算・引き算の部分のみであるため、
+//       この二つの関数をひとつにまとめてしまうことも可能。
 function hikizan() {
 	text03 = document.getElementById('atai3');
 	text04 = document.getElementById('atai4');
@@ -318,9 +224,15 @@ function kaishi() {
 
 	//画像をcanvasに設定
 	img.onload = function(){
-	ctx.drawImage(img, 0, 0, 250, 420);
+		ctx.drawImage(img, 0, 0, 250, 420);
 
-	canvas.setAttribute('style' , 'display:block;margin:auto');
-	document.body.appendChild(canvas);
+		canvas.setAttribute('style' , 'display:block;margin:auto');
+		document.body.appendChild(canvas);
+	}  
+
+	// ステップごとの着せ替え状態を初期化する。
+	for (ds of dress_step) {
+		ds.checked = false;
 	}
+	dress_step[0].checked = true;
 }
