@@ -4,10 +4,23 @@
  毎月開催されるプログラムを学ぶコミュニティサークルです。このサイトは公開で運用します。このサイトを利用に当たり、簡単な自己紹介をご記入ください。
 本日　LiveShareを体験します。誰が変更したのか、形跡は残るのかな？
 今　VscodeのLiveShareからJoinを選んではいりました。
-
 ***
 次回もくもく会　６月２４日（土）　記載ボード
 1. プッシュのやり方お教えてください。皆さんそれぞれのやり方があるようなので、やり方を聞きたいです。
+
+```sh
+$ # 現在のブランチを確認する。
+$ git branch 
+* master
+$
+$ # 作業用にfix_readmeという名前のブランチ作成する。
+$ # (ブランチの名前は作業内容に沿った名前にするとよい)
+$ git checkout -b fix_readme
+Switched to a new branch 'fix_readme'
+$ git branch
+* fix_readme
+  master
+```
 2. 先回プログラムを投稿したyachiyoさんの「算術で着せ替え？」を話合いしませんか
 3. お題について　いろんなスライドショー　lesson3でスライドショーのサンプル上げましたが、いろんな方法があるようなので、各人でトライしませんか
 4. 他 
@@ -32,6 +45,28 @@
 3. step up　初心者道場　中級以上　
 4. basic　　lessonと違い、独立のお試しページ
 5. recital 　発表用の作品を登録
+***
+## よく使うgitコマンド
+### オリジナルのリポジトリに入った変更内容を取り込む場合の手順
+```sh
+$ # リポジトリの参照先を確認する。
+$ # この例ではoriginとupstreamの2つの参照先がある。
+$ # 慣習的に大元のリポジトリは"upstream"と呼ばれたりする。
+$ git remote -v
+origin  git@github.com:furandon-pig/SeniorJa.git (fetch)
+origin  git@github.com:furandon-pig/SeniorJa.git (push)
+upstream        git@github.com:HirokazuYoshino/SeniorJa.git (fetch)
+upstream        git@github.com:HirokazuYoshino/SeniorJa.git (push)
+$ # 大元のリポジトリに入った修正を取り込む。
+$ git fetch upstream
+$ # masterブランチに切り替える。
+$ git checkout master
+Switched to branch 'master'
+$ # 取り込んでおいた大元のリポジトリの変更内容をmasterブランチに反映(マージ)する。
+$ git merge upstream/master
+$ # origin(大元のリポジトリからフォークしたリポジトリ)のmasterにプッシュする。
+$ git pushd origin master
+```
 ***
 ## 参考文献
 1. 本当によくわかるJavaScriptの教科書　
