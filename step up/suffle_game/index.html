@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sinkeisuizyaku</title>
+    <style>
+
+#clock{font-size: 30px;}
+#field{
+        width: 600px;
+        height: 550px;
+        background-color: rgba(60, 150, 40, 0.8);
+        border: 5px solid goldenrod;
+        border-radius: 20px; }
+    .card{
+        width: 120px; /*幅*/
+        height: 80px; /*高さ*/
+        margin: 10px; /*余白*/
+        border: 5px solid goldenrod;
+        background-size:cover;
+        background-color: white;
+
+        float: left;
+        }
+        img{
+        width: 120px; /*幅*/
+        height: 80px; /*高さ*/
+        float: left;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+   <h2> Memorama<br> シンケイスイジャク</h2>
+    <div id="clock">timer</div>
+    <div id="field"></div>
+
+<script>
+
+//min　maxまでの乱数を作る
+
+function rand(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1))+min;
+}
+let cards = ["a01.png","a02.png","a03.png","a04.png","a05.png",
+            "a06.png","a07.png","a08.png","a020.png","a019.png",
+            "a01.png","a02.png","a03.png","a04.png","a05.png",
+            "a06.png","a07.png","a08.png","a020.png","a019.png"];
+
+let cards2 = ["a025.png"];
+     //シャッフルのアルゴリズム
+        for(let i = cards. length-1; i>0; i--)
+        {
+            let r =rand(0,i);
+            let tmp =cards[i];
+            cards[i]= cards[r];
+            cards[r]= tmp;
+        }
+
+let field = document.getElementById("field");
+
+for(let i=0; i<cards.length; i++)
+{
+
+     let elm =document.createElement("div");
+
+     elm.className ="card";
+     elm.innerHTML = '';
+
+     elm.sink =i;
+     elm.onclick =click;
+
+     field.appendChild(elm);
+
+}
+
+let first = null;
+let second = null;
+let timer =null;
+let count =0;
+let mekuri =0;
+let clock =document.getElementById("clock")
+let timer2 =setInterval(function() {
+    clock.innerText = "timer"+(++count);
+    }, 1000);
+
+
+
+//クリックされた時の処理
+function click(e)
+{
+    console.log('-=> click');
+
+    /*
+    if(timer)
+    {
+
+        clearTimeout(timer);
+        judge();
+    }
+    */
+        let elm= e.target;
+        let i =elm.sink;
+        elm.innerHTML = '<img src=' + cards[i] + '>';
+
+    if(!first)
+    {
+        first = elm;
+    }
+    else if(first.sink == elm.sink)
+    {
+        return;
+    }
+    else
+    {
+        second =elm;
+        timer =setTimeout(judge, 1000);
+    }
+
+
+
+    //ジャッジする関数
+    function judge()
+    {
+        if(first.innerHTML == second.innerHTML)
+        {
+            first.style.visibility = "hidden";
+            second.style.visibility = "hidden";
+            mekuri +=2;
+            if( mekuri == cards.length) clearInterval(timer2);
+        }
+        else
+        {
+            first.innerHTML = '';
+            second.innerHTML = '';
+
+            count +=5;
+        }
+        first =null;
+        second =null;
+        timer =null;
+    }
+
+}
+/*
+window.addEventListener('DOMContentLoaded', function(){
+
+var article_element = document.querySelector("article");
+article_element.style.setProperty("background", "url(./image/bear.png) left top / 200px auto no-repeat");
+});
+*/
+</script>
+
+</body>
+</html>
