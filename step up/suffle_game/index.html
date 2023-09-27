@@ -28,9 +28,6 @@
         height: 80px; /*高さ*/
         float: left;
         }
-
-
-
     </style>
 </head>
 
@@ -38,29 +35,103 @@
    <h2> Memorama<br> シンケイスイジャク</h2>
     <div id="clock">timer</div>
     <div id="field"></div>
-
 <script>
 
-//min　maxまでの乱数を作る
+let first = null;
+let second = null;
+let count =0;
+let mekuri =0;
+let clock =document.getElementById("clock")
+let timer = null
+let is_judging = false;
 
+//min　maxまでの乱数を作る
 function rand(min,max)
 {
     return Math.floor(Math.random()*(max-min+1))+min;
 }
+
+//クリックされた時の処理
+function click(e)
+{
+    if (is_judging == true) {
+        console.log('カードの判定中です。');
+        return;
+    }
+
+    if (timer == null) {
+        timer = setInterval(function() {
+            clock.innerText = "timer"+(++count);
+        }, 1000);
+    }
+    let elm= e.target;
+    let i =elm.sink;
+    elm.innerHTML = '<img src=' + cards[i] + '>';
+
+    // めくったカードが1枚目か2枚目かで処理を分ける。
+    if(!first)
+    {
+        first = elm;
+    }
+    else 
+    {
+        // 同じ配列インデックスで表現されているカードはめくれないのでチェックする。
+        if(first.sink == elm.sink)
+        {
+            return;
+        }
+
+        second =elm;
+        is_judging = true;
+        setTimeout(judge, 1000);
+    }
+}
+
+//ジャッジする関数
+function judge()
+{
+    is_judging = true;
+
+    if (first == null || second == null) {
+        is_judging = false;
+        return;
+    }
+
+    if(first.innerHTML == second.innerHTML)
+    {
+        first.style.visibility = "hidden";
+        second.style.visibility = "hidden";
+        mekuri +=2;
+        if( mekuri == cards.length) clearInterval(timer);
+    }
+    else
+    {
+        first.innerHTML = '';
+        second.innerHTML = '';
+
+        count +=5;
+    }
+    first =null;
+    second =null;
+    timer =null;
+
+    is_judging = false;
+}
+
 let cards = ["a01.png","a02.png","a03.png","a04.png","a05.png",
             "a06.png","a07.png","a08.png","a020.png","a019.png",
             "a01.png","a02.png","a03.png","a04.png","a05.png",
             "a06.png","a07.png","a08.png","a020.png","a019.png"];
 
 let cards2 = ["a025.png"];
-     //シャッフルのアルゴリズム
-        for(let i = cards. length-1; i>0; i--)
-        {
-            let r =rand(0,i);
-            let tmp =cards[i];
-            cards[i]= cards[r];
-            cards[r]= tmp;
-        }
+//シャッフルのアルゴリズム
+for(let i = cards. length-1; i>0; i--)
+{
+    let r =rand(0,i);
+    let tmp =cards[i];
+    cards[i]= cards[r];
+    cards[r]= tmp;
+}
 
 let field = document.getElementById("field");
 
@@ -79,74 +150,6 @@ for(let i=0; i<cards.length; i++)
 
 }
 
-let first = null;
-let second = null;
-let timer =null;
-let count =0;
-let mekuri =0;
-let clock =document.getElementById("clock")
-let timer2 =setInterval(function() {
-    clock.innerText = "timer"+(++count);
-    }, 1000);
-
-
-
-//クリックされた時の処理
-function click(e)
-{
-    console.log('-=> click');
-
-    /*
-    if(timer)
-    {
-
-        clearTimeout(timer);
-        judge();
-    }
-    */
-        let elm= e.target;
-        let i =elm.sink;
-        elm.innerHTML = '<img src=' + cards[i] + '>';
-
-    if(!first)
-    {
-        first = elm;
-    }
-    else if(first.sink == elm.sink)
-    {
-        return;
-    }
-    else
-    {
-        second =elm;
-        timer =setTimeout(judge, 1000);
-    }
-
-
-
-    //ジャッジする関数
-    function judge()
-    {
-        if(first.innerHTML == second.innerHTML)
-        {
-            first.style.visibility = "hidden";
-            second.style.visibility = "hidden";
-            mekuri +=2;
-            if( mekuri == cards.length) clearInterval(timer2);
-        }
-        else
-        {
-            first.innerHTML = '';
-            second.innerHTML = '';
-
-            count +=5;
-        }
-        first =null;
-        second =null;
-        timer =null;
-    }
-
-}
 /*
 window.addEventListener('DOMContentLoaded', function(){
 
